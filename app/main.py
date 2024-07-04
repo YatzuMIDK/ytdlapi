@@ -35,7 +35,7 @@ def remove_old_files():
 
 scheduler.add_job(remove_old_files, 'interval', hours=1)
 
-@app.post("/download/")
+@app.post("/dl/")
 async def download_video(request: VideoRequest):
     query = request.query
 
@@ -66,7 +66,7 @@ async def download_video(request: VideoRequest):
     video_files[filename] = expire_time
 
     # Generar el enlace reproducible
-    link = f"https://ytdlapi.onrender.com/videos/{filename}"
+    link = f"https://ytdlapi-r6y4.onrender.com/videos/{filename}"
 
     return {"url": link}
 
